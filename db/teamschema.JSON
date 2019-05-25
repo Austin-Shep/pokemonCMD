@@ -1,0 +1,61 @@
+{
+    "mon": "name",
+    "type": "type",
+    "stats": {
+        "hp": 10,
+        "attack": 1,
+        "defence": 1,
+        "speed": 1,
+        "special": 1
+    },
+    "moves": [
+        {
+            "name": "name",
+            "isOffensive": true,
+            "isSpecial": false,
+            "attk": 0,
+            "pp": 5,
+            "acc": 100,
+            "effects": [
+                "stat",
+                "+- mod"
+            ]
+        },
+        {
+            "name": "name",
+            "isOffensive": true,
+            "isSpecial": false,
+            "attk": 0,
+            "pp": 5,
+            "acc": 100,
+            "effects": [
+                "stat",
+                "+- mod"
+            ]
+        },
+        {
+            "name": "name",
+            "isOffensive": true,
+            "isSpecial": false,
+            "attk": 0,
+            "pp": 5,
+            "acc": 100,
+            "effects": [
+                "stat",
+                "+- mod"
+            ]
+        },
+        {
+            "name": "name",
+            "isOffensive": true,
+            "isSpecial": false,
+            "attk": 0,
+            "pp": 5,
+            "acc": 100,
+            "effects": [
+                "stat",
+                "+- mod"
+            ]
+        }
+    ]
+}
