@@ -1,13 +1,75 @@
-const sqlite3 = require('sqlite3').verbose();
-const classes = require('./classes')
+const inquirer = require("inquirer");
+const roster = require("./database/roster")
 
-let db = new sqlite3.Database('./db/pokemon.db', sqlite3.OPEN_READWRITE, err =>{
-    if(err) return console.log(err);
-    console.log("connected to a SQLlite Database")
-    console.log(db)
-});
+let playerTeam = new Team(/* sqlite mumbojumbo */)
+let opponentTeam = new Team(/* sqlite mumbojumbo */)
+//display mons, inquirer: display choices, 
 
-db.close(err => {
-    if (err) return console.log(err);
-    console.log("closed the connection to database")
-})
+let displayPokemon = () =>{
+    /*/use this to display the pokemon, and relevent stats:
+        names of mons,
+        hp % of opponent, 
+        total hp of your 'mon,
+
+    /*/ 
+}
+//player choices
+let attackSelect = cb => {
+    //select an attack based on the current mon
+}
+
+let monSwitch = cb => {
+    // player
+
+}
+
+let forfit = () => {
+
+}
+
+//opponent sources
+
+let opponentchoice = cb => {
+
+    gameloop();
+}
+
+
+
+//game logic
+(function gameloop () {
+    displayPokemon()
+
+    inquirer.prompt([
+        {
+            type: "list",
+            name: "move",
+            message:"Choose your action!",
+            choices: [
+                "attack",
+                "pokemon",
+                "items",
+                "forfit",
+            ]
+        }
+    ]).then(a => {
+        switch(a.move){
+            case "attack":
+                attackSelect();
+            break;
+            case "pokemon":
+                monSwitch();
+            break;
+            case "items":
+                console.log("You cant use items in a ranked battle!")
+                gameloop();
+            break;
+            case "forfit":
+                forfit();
+            break;
+            default: 
+                return;
+        }
+        
+    })
+})()

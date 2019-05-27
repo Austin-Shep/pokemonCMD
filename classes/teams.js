@@ -1,5 +1,7 @@
 const Pokemon = require("./pokemon");
+const Item = require("./items")
 const inquirer = require("inquirer");
+
 
 class Team {
     constructor(...pokemon) {
@@ -14,35 +16,38 @@ class Team {
     //high order
     chooseAttck(recip, cb) {
         //compare speeds and move priority, if the player has a higher speed and/or higher priority they will go first. 
-        //the call backs will be this.attackFrst/this.attackLst
+        
+        
+        //cb being the opponents choice
         cb()
     }
-    chooseItem(recip, cb) {
-        //look throuygh list of items with inquirer and apply it to the 
-        cb()
+    chooseMon(cb) {
+        //inquir, loop over pokemon avail ( minus the current) 
+        
+        //cb will be if this.chooseItem()/ this.switchMon()
+        cb(recip)
     }
-    SwitchMon(cb) {
 
-    }
     Forfit(cb) {
-
+        console.log("you have lost!")
+        //cb will be end of game logic
+        cb()
     }
 
     //sub-functions
-    attackFrst(recip) {
-
+    chooseItem(recip, cb) {
+        //look through list of items with inquirer and apply it to the recip
+        
+        //cb being the the opponents choice
+        cb()
     }
 
-    attackLst(recip) {
-        //
+    switchMon(cb) {
+
+        //cb being the the opponents choice
+        cb()
     }
 
-    chooseMon(cb) {
-        //cb will be if they chose to switch or use an item
-        //inquire, loop over pokemon avail ( minus the current) 
-
-        cb(recip)
-    }
 
 
 }
