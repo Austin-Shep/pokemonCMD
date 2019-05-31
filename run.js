@@ -1,35 +1,43 @@
 const inquirer = require("inquirer");
-const roster = require("./database/roster")
+const { Team } = require("classes");
+const monList = require("./db/teams")
 
-let playerTeam = new Team(/* sqlite mumbojumbo - well guery the database for the mon stats to generate the team based on which team they choose, thinking of using a cmd argument for this rn */)
-let opponentTeam = new Team(/* sqlite mumbojumbo - this will depend on what team the player chooses */)
-//display mons, inquirer: display choices, 
-let curentPMon;
-let curentOMon; 
+var playerTeam,
+    opponentTeam,
+    curentPMon,
+    curentOMon;
 
-function teamVenesaur(){
-
-}
-function teamCharizard(){
-
-}
-function teamBlastoise(){
-
-}
-
-(function (team) {
-    switch (team.ToLowerCase()) {
-        case "venesaur":
-            teamVenesaur();
+function team(sel) {
+    switch (sel) {
+        case "v":
+            playerTeam = new Team(monList.ven)
+            opponentTeam = new Team(monList.char)
             break;
-        case "blastoise":
-            teamBlastoise();
+        case "b":
+            playerTeam = new Team(monList.blas)
+            opponentTeam = new Team(monList.ven)
+            break;
+        case "c":
+        default:
+            playerTeam = new Team(monList.char)
+            opponentTeam = new Team(monList.blas)
+
             break
-        case "charizard":
-        default: teamCharizard();
-            break;
     }
-})(process.argv[2])
+}
+
+
+switch (process.argv[2]) {
+    case "venesaur":
+        team("v");
+        break;
+    case "blastoise":
+        team("b");
+        break
+    case "charizard":
+    default: team("c");
+        break;
+}
 
 let displayPokemon = () => {
     /*/use this to display the pokemon, and relevent stats:
