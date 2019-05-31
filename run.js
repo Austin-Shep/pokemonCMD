@@ -7,13 +7,13 @@ let opponentTeam = new Team(/* sqlite mumbojumbo - this will depend on what team
 let curentPMon;
 let curentOMon; 
 
-teamVenesaur(){
+function teamVenesaur(){
 
 }
-teamCharizard(){
+function teamCharizard(){
 
 }
-teamBlastoise(){
+function teamBlastoise(){
 
 }
 
