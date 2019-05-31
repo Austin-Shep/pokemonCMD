@@ -7,37 +7,22 @@ var playerTeam,
     curentPMon,
     curentOMon;
 
-function team(sel) {
-    switch (sel) {
-        case "v":
-            playerTeam = new Team(monList.ven)
-            opponentTeam = new Team(monList.char)
-            break;
-        case "b":
-            playerTeam = new Team(monList.blas)
-            opponentTeam = new Team(monList.ven)
-            break;
-        case "c":
-        default:
-            playerTeam = new Team(monList.char)
-            opponentTeam = new Team(monList.blas)
-
-            break
-    }
-}
-
-
 switch (process.argv[2]) {
     case "venesaur":
-        team("v");
+        playerTeam = new Team(monList.ven)
+        opponentTeam = new Team(monList.char)
         break;
     case "blastoise":
-        team("b");
-        break
+        playerTeam = new Team(monList.blas)
+        opponentTeam = new Team(monList.ven)
     case "charizard":
-    default: team("c");
+    default:
+        playerTeam = new Team(monList.char)
+        opponentTeam = new Team(monList.blas)
         break;
 }
+curentPMon = { ...playerTeam[0] }
+curentOMon = { ...opponentTeam[0] }
 
 let displayPokemon = () => {
     /*/use this to display the pokemon, and relevent stats:
